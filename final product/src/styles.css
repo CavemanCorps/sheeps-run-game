@@ -1,0 +1,11 @@
+body {
+  margin-top: 0;
+  margin-left: 0;
+}
+
+#canvas1 {
+  width: 900px;
+  height: 600px;
+  background: white;
+  font-family: "Tourney", cursive;
+}
