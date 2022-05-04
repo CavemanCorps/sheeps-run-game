@@ -663,25 +663,7 @@ function handleSheep() {
   }
 }
 
-let oppHeights = [
-  4.5,
-  5,
-  5.5,
-  10,
-  15,
-  17,
-  20,
-  30,
-  40,
-  50,
-  70,
-  75,
-  80,
-  85,
-  90,
-  95,
-  100
-];
+let oppHeights = [4.5, 5, 5.5, 10, 15, 17, 20, 30, 40, 50, 70, 75, 80, 85, 90, 95, 100];
 let oppQueue = [];
 
 //let currentLevel[2] = sins3;
