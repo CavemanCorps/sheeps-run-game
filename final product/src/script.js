@@ -26,41 +26,36 @@ let level2Frames = [50, 150, 250, 300, 450]; // created since level2 word enemie
 let currentEnemyFrames = randomFrames;
 
 let sins3 = [
+  ["🧨", "", 177],
   ["🤰🤰🏿🤰🏽", "...😳", 237],
   ["👺", "Warren sold his soul to the devil!", 177],
-  ["👶", "Warren did not pull out in time!", 177],
+  ["👶", "GOOGOOGAGA", 177],
   ["👃", "Warren was sniffed out!", 177],
-  ["🦻", "Warren heard some dumb shit and impaired his hearing!", 177],
-  ["👨‍🦼", "Warren hit an impaired person and became impaired himself!", 177],
+  ["🦻", "Warren heard sum dumb and impaired his hearing!", 177],
   ["🍌", "...!", 177],
   ["🍖🥩", "Warren was made the premier dish of the night!", 205],
-  ["🥓", "Warren not a muslim but he don't eat bacon!", 177],
   ["🤺🤺🤺", "OWW! Fellas stabbed Warren!", 237],
-  ["👳‍♂️", "Warren's ass got left behind in Afganistan!", 177],
-  ["🐒", "Warren got BTFO to Africa!", 177],
   ["🦘", "Warren got BTFO to Australia!", 177],
-  ["📱👱‍♀️", "Karen won't shut the fuck up!", 205],
   ["🤵🏿🤵‍", 'Feds "want a word" with Warren!', 205],
-  ["🔫👩🏿", "Ja'neequa sprayed Warren's ass!", 205],
-  ["🍆", 'Warren got broke-backed by his "homies"!', 177], // enemy, text, width, item 16 here;
+  ["🔫👶", "Warren got sprayed!", 205],
+  ["🍆", '...😱', 177], // enemy, text, width, item 16 here;
   ["🧜‍♂️", "Merman kidnapped Warren!", 177],
-  ["🔌", "Warren's plug ratted on him!", 177],
-  ["🐶", "Warren got knotted!", 177] 
+  ["🌮", "", 177]
 ]; // level1 phase 1 array
 
 let sins4 = [
-  ["🧕🏿", "", 177],
-  ["🌮", "", 177],
-  ["FUCKER", "", 230],
-  ["SUCKER", "", 370],    // SHORTENED BECAUSE TOO LONG
-  ["SHIT", "", 200],
-  ["BITCH", "", 210],
-  ["WHORE", "", 210],
-  ["GLUTTON", "", 300],
-  ["PUSSY", "", 210],
-  ["FUCKYOU", "", 300],
-  ["PHARISEE", "", 310]
+  // ["🧨", "", 177],
+  // ["🌮", "", 177]
+  ["U SUCK", "", 230],
+  ["SUCKER", "", 230],    // SHORTENED BECAUSE TOO LONG
+  ["HAHAHA", "", 230]
+  ["LOOL", 200],
+  ["LOSER", "", 220],
+  ["LOLOL", "", 200],
+  ["SUCKER", "", 230],
+  ["GET OUT", "", 235]
 ];
+
 
 const array2 = [
   ["LUST", "", 200],
@@ -97,16 +92,15 @@ foregroundLayer2.src = "./src/assets/images/backgrounds/trueForeground4.png";
 let gameMusic = new Audio();
 gameMusic.src = "./src/assets/sounds/one_0.mp3";
 let gameMusic2 = new Audio();
-gameMusic2.src = "./src/assets/sounds/cold_silence.ogg"; 
+gameMusic2.src = "./src/assets/sounds/cold_silence.ogg"; // level number, level background, enemy array, music, win score to next level
 
-// level number, level background, enemy array, music, win score to next level
-// THE LEVEL RIGHT HERE MOTHAFUCKA
+// THE LEVEL RIGHT HERE 
 let level1 = [
   1,
   foregroundLayer1,
   sins3,
   gameMusic,
-  1000,
+  1000,         // POINTS TO NEXT LEVEL
   "Level 2",
   800,          // DECREASED FROM 850 TO 800
   "black",
@@ -433,7 +427,7 @@ function gameStatus() {
 
   if (distance === currentLevel[4]) {
     blackScreen();
-    nextLevel(); // simply removes 0 from levels      HERE IS WHERE NEW LEVEL COMMENCES
+    nextLevel(); // simply removes 0 from levels'     // HERE IS WHERE NEW LEVEL COMMENCES
   }
 }
 
@@ -515,7 +509,7 @@ class Sheep {
     this.shitNoise.src = "./src/assets/sounds/shitNoises/crack12.mp3.flac"; 
     this.shitNoisePlayed = false;
 
-    // FURTHER IMPROVE THIS SHIT    --DONE
+    // FURTHER IMPROVE THIS SHIT
     this.boomFrameX = 0;
     this.boomMaxFrame = 3;
     this.BoomNoise = new Audio();
@@ -542,7 +536,6 @@ class Sheep {
     //this.maxHeight = floor.y - 300;
     this.maxHeight = floor.y - 445;
   }
-
   update() {
     if (frame % sheepFrame === 0 && sheepFrame > 0 && running) {
       if (this.frameX < this.maxFrame)
@@ -663,7 +656,25 @@ function handleSheep() {
   }
 }
 
-let oppHeights = [4.5, 5, 5.5, 10, 15, 17, 20, 30, 40, 50, 70, 75, 80, 85, 90, 95, 100];
+let oppHeights = [
+  4.5,
+  5,
+  5.5,
+  10,
+  15,
+  17,
+  20,
+  30,
+  40,
+  50,
+  70,
+  75,
+  80,
+  85,
+  90,
+  95,
+  100
+];
 let oppQueue = [];
 
 //let currentLevel[2] = sins3;
@@ -681,6 +692,9 @@ class Opp {
 
     this.x = canvas.width + 100; // aka spawnpoint
     this.y = floor.y - this.height - 10;
+
+    //this.randomHeight =
+    // oppHeights[Math.floor(Math.random() * oppHeights.length)];
 
     this.randomHeight =
       oppHeights[Math.floor(Math.random() * oppHeights.length)];
@@ -740,8 +754,9 @@ function handleOpp() {
         // TACO SUPRISE EASTEREGG
       }
 
-      if (current.image === "🧕🏿") {
+      if (current.image === "🧨") {
         // && sheep1.boomEnd === false) {
+        //
         warren.src = blackFramework;
         sheep1.framework = blackFramework;
         if (!sheep1.boomEnd) {
@@ -900,7 +915,7 @@ function handleCloud() {
   }
 }
 
-//"vestigia nulla retrorsum" -not a step backwards
+//"vestigia nulla retrorsum" not a step backwards
 
 let blimpSignTypes = [
   ["YOU GO WARREN", 390],
@@ -909,20 +924,17 @@ let blimpSignTypes = [
   ["WOOHOO!!!", 250],
   ["WE LOVE WARREN THE SHEEP", 645],
   ["ALMOST THERE", 390], // this.x + 60 is perfect for these two. 390 / 6.5 = 60
-  ["YOUR AD HERE", 380],
   ["YEAHH BABY WOOOO!!!", 500],
   ["wait there's something wrong", 690],
-  ["holy shit, can you hear me???", 700],
+  ["can you hear me???", 700],
   ["I can't believe it's happening", 720],
   ["We've been waiting for so long", 720],
   ["He chose you", 350], 
-  ["REVELATION 17:14", 410],
   ["Please help us Warren", 570],
-  ["I'm talking to you from hell", 690],
+  ["I'm talking to you from the underworld", 715],
   ["This is the only way I can communicate", 1000],
   ["Warren, get to score 1000 to advance", 1000], // BIG HINT
-  ["I killed myself back in '08", 690],
-  ["I regret it so much. It fucking sucks so bad", 1100],
+  ["they kidnapped me back in '08", 690],
   ["I miss everyone. I think of them all the time", 1100],
   ["I hope they still remember me", 690],
   ["enjoy life. Eternity's right around the corner", 1100],
@@ -933,22 +945,12 @@ let blimpSignTypes = [
   ["They have the technology now so everything will be fulfilled", 1300],
   ["One world government and one mark.", 1110],
   ["And stop listening to their music. Rainman's got them", 250],
-  ["I fucking hate God. Why would he do this to me", 1100],
   ["Its so lonely down here", 570],
   ["I'm all alone with my thoughts", 720],
-  ["I always talk to myself like some loony. Like a crackhead", 1300],
   ["They're always listening", 690],
-  ["They're racist assholes", 690],
-  ["There's no one to talk to", 690],
-  ["I can't get used to the pain", 690],
   ["You can't even sleep. It's not allowed", 1100],
   ["I haven't slept in over 10 years", 720],
-  ["Tell my brother to repent so he doesn't have to go through this", 1500],
-  ["I hope he still thinks of me. We had such good times", 1400],
-  ["Fuck, I think they heard me", 690],
-  ["vestigia nulla retrorsum", 690],
-  ["666 333 777", 250],
-  ["holy shit that hurts so much", 720],
+  ["YOUR AD HERE", 380],
   ["Placeholder. This isn't supposed to show", 1100]
 ];
 
