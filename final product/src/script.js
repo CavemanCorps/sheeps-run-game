@@ -53,7 +53,8 @@ let sins4 = [
   ["LOSER", "", 220],
   ["LOLOL", "", 200],
   ["SUCKER", "", 230],
-  ["GET OUT", "", 235]
+  ["GET OUT", "", 235],
+  ["U TRASH", "", 235 
 ];
 
 
