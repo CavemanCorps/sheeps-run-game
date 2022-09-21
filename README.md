@@ -1,5 +1,5 @@
 # sheeps-run-game
-lil comedy/horror runner game I made for fun
+lil comedy endless runner game I made for fun
 
 TODO:
 Everything is good for the most part. However, a few tweaks would be nice:
