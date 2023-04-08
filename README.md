@@ -11,3 +11,4 @@ Everything is good for the most part. However, a few tweaks would be nice:
 * add more cool animation Easter eggs --DONE
 
 TODO: out of nowhere, a line shows up in the background. Fix asap and reupload on Newgrounds. 
+TODO: now it's super slow on Newgrounds desktop. Smooth on macbook. What's the issue?
